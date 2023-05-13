@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: video_rails_23_development
+  username: <%= ENV["VIDEO_RAILS_23_DEV_DATABASE_USERNAME"] %>
+  password: <%= ENV["VIDEO_RAILS_23_DEV_DATABASE_PASSWORD"] %>
+
+test:
+  <<: *default
+  database: video_rails_23_test
+  username: <%= ENV["VIDEO_RAILS_23_DEV_DATABASE_USERNAME"] %>
+  password: <%= ENV["VIDEO_RAILS_23_DEV_DATABASE_PASSWORD"] %>
+
+production:
+  <<: *default
+  database: video_rails_23_production
+  username: video_rails_23
+  password: <%= ENV["VIDEO_RAILS_23_DATABASE_PASSWORD"] %>
